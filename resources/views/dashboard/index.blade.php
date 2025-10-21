@@ -9,6 +9,7 @@
         <a href="{{ route('users.index') }}" class="btn btn-outline-primary">Manajemen User</a>
         <a href="{{ route('cabangs.index') }}" class="btn btn-outline-success">Manajemen Cabang</a>
         <a href="{{ route('roles.index') }}" class="btn btn-outline-warning">Manajemen Hak Akses</a>
+        <a href="{{ route('managesupplierindex') }}" class="btn btn-outline-warning">Manajemen Supplier</a>
     </div>
 </div>
 @endsection

@@ -37,6 +37,7 @@
             <a href="{{ route('users.index') }}">👤 Manajemen User</a>
             <a href="{{ route('cabangs.index') }}">🏢 Manajemen Cabang</a>
             <a href="{{ route('roles.index') }}">🔐 Manajemen Hak Akses</a>
+            <a href="{{ route('managesupplierindex') }}">📦 Manajemen Supplier</a>
             <form action="{{ route('logout') }}" method="POST" class="mt-3">
                 @csrf
                 <button class="btn btn-light btn-sm w-100">Logout</button>

@@ -6,6 +6,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\CabangController;
+use App\Http\Controllers\SupplierController;
 
 // Guest (belum login)
 Route::middleware('guest')->group(function () {
@@ -25,4 +26,13 @@ Route::middleware('auth')->group(function () {
         Route::resource('cabangs', CabangController::class);
         Route::resource('roles', RoleController::class)->only(['index', 'store', 'update', 'destroy']);
     });
+});
+
+//supplier
+Route::middleware(['auth'])->group(function () {
+    Route::get('/supplier', [SupplierController::class, 'index'])->name('managesupplierindex');
+    Route::get('/supplier/loadsupplier', [SupplierController::class, 'loadsupplier'])->name('loadsupplier');
+    Route::post('/supplier/postsupplier', [SupplierController::class, 'store'])->name('storesupplier');
+    Route::post('/supplier/updatesupplier', [SupplierController::class, 'update'])->name('updatesupplier');
+    Route::post('/supplier/deletesupplier', [SupplierController::class, 'destroy'])->name('deletesupplier');
 });
