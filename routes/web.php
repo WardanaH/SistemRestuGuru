@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\CabangController;
 use App\Http\Controllers\SupplierController;
+use App\Http\Controllers\KategoriController;
 
 // Guest (belum login)
 Route::middleware('guest')->group(function () {
@@ -35,4 +36,13 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/supplier/postsupplier', [SupplierController::class, 'store'])->name('storesupplier');
     Route::post('/supplier/updatesupplier', [SupplierController::class, 'update'])->name('updatesupplier');
     Route::post('/supplier/deletesupplier', [SupplierController::class, 'destroy'])->name('deletesupplier');
+});
+
+// Kategori
+Route::middleware(['auth'])->group(function () {
+    Route::get('/kategori', [App\Http\Controllers\KategoriController::class, 'index'])->name('managekategoriindex');
+    Route::get('/kategori/loadkategori', [App\Http\Controllers\KategoriController::class, 'loadkategori'])->name('loadkategori');
+    Route::post('/kategori/postkategori', [App\Http\Controllers\KategoriController::class, 'store'])->name('storekategori');
+    Route::post('/kategori/updatekategori', [App\Http\Controllers\KategoriController::class, 'update'])->name('updatekategori');
+    Route::post('/kategori/deletekategori', [App\Http\Controllers\KategoriController::class, 'destroy'])->name('deletekategori');
 });
