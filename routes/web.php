@@ -45,3 +45,13 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/jenispelanggan/update', [JenisPelanggansController::class, 'update'])->name('jenispelanggan.update');
     Route::delete('/jenispelanggan/destroy', [JenisPelanggansController::class, 'destroy'])->name('jenispelanggan.destroy');
 });
+
+// Kategori
+Route::middleware(['auth'])->group(function () {
+    Route::get('/kategori', [App\Http\Controllers\KategoriController::class, 'index'])->name('managekategoriindex');
+    Route::get('/kategori/loadkategori', [App\Http\Controllers\KategoriController::class, 'loadkategori'])->name('loadkategori');
+    Route::post('/kategori/postkategori', [App\Http\Controllers\KategoriController::class, 'store'])->name('storekategori');
+    Route::post('/kategori/updatekategori', [App\Http\Controllers\KategoriController::class, 'update'])->name('updatekategori');
+    Route::post('/kategori/deletekategori', [App\Http\Controllers\KategoriController::class, 'destroy'])->name('deletekategori');
+});
+

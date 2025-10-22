@@ -46,6 +46,7 @@
         <a href="{{ route('cabangs.index') }}">🏢 Manajemen Cabang</a>
         <a href="{{ route('roles.index') }}">🔐 Manajemen Hak Akses</a>
         <a href="{{ route('managesupplierindex') }}">📦 Manajemen Supplier</a>
+        <a href="{{ route('managekategoriindex') }}">📂 Manajemen Kategori</a>
         <a href="{{ route('jenispelanggan.index') }}">🧾 Manajemen Jenis Pelanggan</a>
         <form action="{{ route('logout') }}" method="POST" class="mt-3">
             @csrf
@@ -67,4 +68,5 @@
     </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 </html>
