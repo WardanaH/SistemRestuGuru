@@ -2,11 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\CabangController;
-use App\Http\Controllers\SupplierController;
+use App\Http\Controllers\JenisPelanggansController;
 
 // Guest (belum login)
 Route::middleware('guest')->group(function () {
@@ -35,4 +36,12 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/supplier/postsupplier', [SupplierController::class, 'store'])->name('storesupplier');
     Route::post('/supplier/updatesupplier', [SupplierController::class, 'update'])->name('updatesupplier');
     Route::post('/supplier/deletesupplier', [SupplierController::class, 'destroy'])->name('deletesupplier');
+});
+
+//jenis pelanggans
+Route::middleware(['auth'])->group(function () {
+    Route::get('/jenispelanggan', [JenisPelanggansController::class, 'index'])->name('jenispelanggan.index');
+    Route::post('/jenispelanggan/store', [JenisPelanggansController::class, 'store'])->name('jenispelanggan.store');
+    Route::put('/jenispelanggan/update', [JenisPelanggansController::class, 'update'])->name('jenispelanggan.update');
+    Route::delete('/jenispelanggan/destroy', [JenisPelanggansController::class, 'destroy'])->name('jenispelanggan.destroy');
 });
